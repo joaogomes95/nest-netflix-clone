@@ -11,7 +11,12 @@ datasource db {
 }
 
 model USer {
-  username    String @id
-  password    String
-  displayName String
+  id        String   @id @default(uuid()) //<- Gera id automático
+  name      String
+  email     String   @unique
+  role      String   @default("USER")
+  status    Boolean  @default(true)
+  password  String
+  updatedAt DateTime @updatedAt
+  createdAt DateTime @default(now())
 }
