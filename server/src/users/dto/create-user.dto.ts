@@ -1,6 +1,6 @@
 //Data tranfer Object = Objeto de tranfência de dados;
 export class CreateUserDto{
-    nome: string;
+    name: string;
     email: string;
     password: string;
     passwordConfirmation: string;

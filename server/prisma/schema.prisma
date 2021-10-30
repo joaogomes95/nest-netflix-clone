@@ -10,7 +10,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model USer {
+model User {
   id        String   @id @default(uuid()) //<- Gera id automático
   name      String
   email     String   @unique
