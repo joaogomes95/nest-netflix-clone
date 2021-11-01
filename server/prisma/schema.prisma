@@ -20,3 +20,14 @@ model User {
   updatedAt DateTime @updatedAt
   createdAt DateTime @default(now())
 }
+
+model Movie {
+  id        String   @id @default(uuid())
+  name      String
+  year      DateTime
+  length    DateTime
+  storyline String
+  image     String
+  updatedAt DateTime @updatedAt
+  createdAt DateTime @default(now())
+}
