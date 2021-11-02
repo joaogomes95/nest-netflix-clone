@@ -2,6 +2,7 @@ import { Injectable, ConflictException, NotFoundException } from '@nestjs/common
 import { Prisma, User } from '@prisma/client';
 import { PrismaService } from 'src/prisma.service';
 import { UserRole } from './enum/role.enum';
+import { Request } from 'express';
 import * as bcrypt from 'bcrypt';
 
 @Injectable()
@@ -50,5 +51,8 @@ export class UsersService {
         return newUser;
     }       
     
+    // async remove(id:string) {
+    //     return this.user.delete({where: {id}});
+    // }
 
 }

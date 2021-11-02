@@ -1,4 +1,4 @@
-import { Controller, Body, Post, Get, Param, UnprocessableEntityException } from '@nestjs/common';
+import { Controller, Body, Post, Get, Param, Delete, UnprocessableEntityException } from '@nestjs/common';
 import { User } from '@prisma/client'
 import { CreateUserDto } from './dto/create-user.dto';
 import { UsersService } from './users.service';
