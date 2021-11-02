@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable,  ConflictException, NotFoundException } from '@nestjs/common';
 import { PrismaService } from 'src/prisma.service';
 import { Prisma, Movie } from '@prisma/client';
 
@@ -12,5 +12,21 @@ export class MoviesService {
         return movie;
     }
 
+    async findAll(): Promise<Movie[]> {        
+        const movies = await this.db.movie.findMany();        
+        return movies;
+    }
+
+    async findOne(id: string): Promise<Movie> {
+        const movie = await this.db.movie.findUnique({
+            where: { id }, 
+        });
+
+        if (!movie) {
+            throw new NotFoundException('ID não encontrado na base de dados!');
+        }
+        
+        return movie;
+    }
     
 }

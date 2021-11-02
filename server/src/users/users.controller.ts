@@ -14,6 +14,11 @@ export class UsersController {
         return this.service.findOne(id);
     }
 
+    @Get('/find')
+    findAll(){
+        return this.service.findAll();
+    }
+
     @Post('create')
     createUser(@Body() data: CreateUserDto): Promise<User> { 
         delete data.passwordConfirmation;

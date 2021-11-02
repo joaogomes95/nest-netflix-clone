@@ -43,4 +43,12 @@ export class UsersService {
         delete user.password
         return user;
     }
+
+    async findAll() {        
+        const user = await this.db.user.findMany();      
+        const newUser = user.map(({ password, ...resto }) => resto)  
+        return newUser;
+    }       
+    
+
 }
