@@ -28,5 +28,18 @@ export class MoviesService {
         
         return movie;
     }
+
+    async delete(id: string) {
+        const movie = await this.db.movie.delete({
+          where: { id },
+        });
+    
+        if (!movie) {
+          throw new NotFoundException('ID Não encontrado na base de dados');
+        }
+    
+        
+        return movie;
+      }
     
 }

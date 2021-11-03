@@ -1,4 +1,4 @@
-import { Controller, Body, Post, Get, Param, UnprocessableEntityException } from '@nestjs/common';
+import { Controller, Body, Post, Get, Param, Delete, UnprocessableEntityException } from '@nestjs/common';
 import { Movie } from '@prisma/client'
 import { CreateMovieDto } from 'src/movies/dto/create-movie.dto';
 import { MoviesService } from './movies.service';
@@ -22,5 +22,9 @@ export class MoviesController {
     return this.service.create(data);
   }
 
+  @Delete('delete/:id')
+    delete(@Param('id') id: string): Promise<Movie> {
+      return this.service.delete(id);
+    }
 
 }

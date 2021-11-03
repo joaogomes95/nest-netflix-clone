@@ -30,5 +30,10 @@ export class UsersController {
         delete data.passwordConfirmation;
         return this.service.create(data, UserRole.ADMIN);
     }
+
+    @Delete('delete/:id')
+    delete(@Param('id') id: string): Promise<User> {
+      return this.service.delete(id);
+    }
 }
 
