@@ -1,18 +1,21 @@
 //Data tranfer Object = Objeto de tranfência de dados;
-import { IsString, Length } from "class-validator";
+import { IsString, Length, IsEmail, IsNotEmpty } from "class-validator";
 export class CreateUserDto{
-    @IsString()
+    @IsString({message: 'Informe um nome válido'})
     @Length(2, 100)
     name: string;
 
-    @IsString()    
+    @IsEmail({}, {message: 'Informe um endereço de email válido'}) 
+    @IsString()       
     email: string;
 
-    @IsString()
+    
     @Length(6, 16)
+    @IsString({message:'Senha incorreta!'})
     password: string;
 
-    @IsString()
+    
     @Length(6, 16)
+    @IsString({message:'Senha incorreta!'})
     passwordConfirmation: string;
 }
